@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contenu {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+          }
+          .contenu button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+          }
+          .contenu button:hover {
+            background-color: #ddd;
+          }
+          .contenu button.active {
+            background-color: #ccc;
+          }
+          .tab {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+          }
+        
+    </style>
+</head>
+<body>
+    <div class="contenu">
+        <button class="tabs" id="Text" onclick="click(event, 'Text')">Text</button>
+        <button class="tabs" onclick="click(event, 'Image')">Image</button>
+        <button class="tabs" onclick="click(event, 'Video')">Video</button>
+        <button class="tabs" onclick="click(event, 'Lien')">Lien</button>
+        <button class="tabs" onclick="click(event, 'Audio' )">Audio</button>
+    </div>
+
+    <div  id="Text" class="tab">
+        <h3>Text</h3>
+        <p>Voici un texte</p>
+    </div>
+    <div class="tab" id="Image">
+        <h3>Image</h3>
+        <img src="téléchargement (3).jpg" alt="">
+    </div>
+    <div id="Video" class="tab">
+        <h3>Video</h3>
+        <video src="baby.mp4" controls></video>
+    </div>
+    <div id="Lien" class="tab">
+        <h3>Lien</h3>
+        <a href="http://www.siteduzero.com">Visitez ce site</a>
+    </div>
+    <div id="Audio" class="tab">
+        <h3>Audio</h3>
+        <audio src="ada.mp3" controls>suivez</audio>
+    </div>
+</body>
+<script>
+    function click (eventt, nom){
+        var i, tab, tabs;
+
+        tab = document.getElementsByClassName("tab");
+        for (i = 0; i < tab.length; i++){
+            tab[i].style.display="none";
+        }
+
+        tabs = document.getElementsByClassName("tabs");
+        for (i = 0; i < tabs.length; i++) {
+            tabs[i].className = tabs[i].className.replace(" active", "");
+        }
+
+        document.getElementById(nom).style.display = "block";
+        eventt.currentTarget.className += " active";
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+    }
+</script>
+</html>
